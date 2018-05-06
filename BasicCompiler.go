@@ -1,4 +1,4 @@
-package BrainFuck
+ package BrainFuck
 
 import (
 	"fmt"
@@ -35,7 +35,7 @@ func (this *BasicCompiler) Calc(code string) (string, []int64, int) {
 			if isSkipCalc {
 				if v != ']'{
 					skipped += string(v)
-				}else{
+				} else {
 					isSkip = false
 					skippedRslt, skippedMem, skippedCurrent := this.Calc(skipped)
 					rslt += skippedRslt
@@ -46,7 +46,7 @@ func (this *BasicCompiler) Calc(code string) (string, []int64, int) {
 					}
 					skipped = ""
 				}
-			}else{
+			} else {
 				if v == ']'{
 					isSkip = false
 					continue
@@ -67,7 +67,7 @@ func (this *BasicCompiler) Calc(code string) (string, []int64, int) {
 			case '<':
 				if current != 0{
 					current --;
-				}else{
+				} else {
 					panic("BrainFuck Runtime Error: Cannot allocate -1.")
 				}
 			case '.':
@@ -78,7 +78,7 @@ func (this *BasicCompiler) Calc(code string) (string, []int64, int) {
 				isSkip = true
 				if current == 0 {
 					isSkipCalc = false
-				}else{
+				} else {
 					isSkipCalc = true
 				}
 			default:
